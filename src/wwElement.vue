@@ -170,7 +170,7 @@ export default {
       this.$emit('trigger-event', { name: 'publish-change', event: payload });
     },
     editFormation(formation) {
-      const payload = { id: formation.id };
+      const payload = { id: formation.id, row: formation };
       console.log('[formations-view] edit-formation', payload);
       this.$emit('trigger-event', { name: 'edit-formation', event: payload });
     },
