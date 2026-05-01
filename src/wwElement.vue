@@ -174,10 +174,12 @@ export default {
       try {
         localStorage.setItem('eclassroom_formation_id', formation.id);
       } catch(e) {}
-      this.$emit('trigger-event', {
-        name: 'edit-formation',
-        event: { id: formation.id, row: formation }
-      });
+      setTimeout(() => {
+        this.$emit('trigger-event', {
+          name: 'edit-formation',
+          event: { id: formation.id, row: formation }
+        });
+      }, 50);
     },
   },
 };
