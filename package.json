@@ -1,0 +1,15 @@
+{
+  "name": "formations-view",
+  "version": "0.0.1",
+  "weweb": {
+    "type": "wwobject"
+  },
+  "scripts": {
+    "build": "weweb build",
+    "serve": "weweb serve",
+    "postinstall": "node patch-weweb-cli.js"
+  },
+  "devDependencies": {
+    "@weweb/cli": "latest"
+  }
+}
