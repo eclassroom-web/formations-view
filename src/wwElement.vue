@@ -171,10 +171,11 @@ export default {
     },
     editFormation(formation) {
       console.log('[formations-view] edit-formation', formation.id);
-      wwLib.goTo({
-        name: 'Formation',
-        params: { id: formation.id }
+      this.$emit('trigger-event', {
+        name: 'edit-formation',
+        event: { id: formation.id, row: formation }
       });
+      window.location.href = '/formation?id=' + formation.id;
     },
   },
 };
