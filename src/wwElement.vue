@@ -171,6 +171,9 @@ export default {
     },
     editFormation(formation) {
       console.log('[formations-view] edit-formation', formation.id);
+      if (window.wwLib && window.wwLib.wwVariable) {
+        window.wwLib.wwVariable.updateValue('currentFormationId', formation.id);
+      }
       this.$emit('trigger-event', {
         name: 'edit-formation',
         event: { id: formation.id, row: formation }
