@@ -167,7 +167,7 @@ export default {
       const newStatus = formation.published ? 'draft' : 'published';
       const payload = { formation_id: formation.id, status: newStatus };
       console.log('[formations-view] publish-change', payload);
-      wwLib.wwElement.useEvent('publish-change', payload);
+      this.$emit('trigger-event', { name: 'publish-change', event: payload });
     },
     editFormation(formation) {
       const row = {
@@ -195,7 +195,7 @@ export default {
         createdAt: formation.created_at || '',
       };
       console.log('[formations-view] edit-formation', { id: formation.id, row });
-      wwLib.wwElement.useEvent('edit-formation', { id: formation.id, row });
+      this.$emit('trigger-event', { name: 'edit-formation', event: { id: formation.id, row } });
     },
   },
 };
