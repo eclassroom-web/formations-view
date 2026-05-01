@@ -10,6 +10,7 @@ export default {
         en: "Formations",
       },
       type: "Array",
+      bindable: true,
       defaultValue: [],
     },
   },
