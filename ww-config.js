@@ -18,7 +18,8 @@ export default {
     {
       name: "edit-formation",
       label: { en: "On edit formation" },
-      event: { id: "" },
+      event: { id: "", row: {} },
+      default: { behavior: "emit" },
     },
     {
       name: "publish-change",
