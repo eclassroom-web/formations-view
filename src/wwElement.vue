@@ -63,7 +63,7 @@
             <button class="btn-toggle-publish" @click="togglePublish(formation)">
               {{ formation.published ? 'Dépublier' : 'Publier' }}
             </button>
-            <button class="btn-edit" @click="$emit('edit-formation', { id: formation.id })">
+            <button class="btn-edit" @click="editFormation(formation)">
               Modifier
             </button>
           </div>
@@ -108,7 +108,7 @@
             <td class="td-actions">
               <button
                 class="btn-edit-sm"
-                @click="$emit('edit-formation', { id: formation.id })"
+                @click="editFormation(formation)"
               >
                 Modifier
               </button>
@@ -137,7 +137,7 @@ export default {
   props: {
     content: { type: Object, required: true },
   },
-  emits: ['publish-change', 'edit-formation', 'create-formation'],
+  emits: ['trigger-event'],
   data() {
     return {
       viewMode: 'list',
@@ -165,7 +165,14 @@ export default {
     },
     togglePublish(formation) {
       const newStatus = formation.published ? 'draft' : 'published';
-      this.$emit('publish-change', { formation_id: formation.id, status: newStatus });
+      const payload = { formation_id: formation.id, status: newStatus };
+      console.log('[formations-view] publish-change', payload);
+      this.$emit('trigger-event', { name: 'publish-change', event: payload });
+    },
+    editFormation(formation) {
+      const payload = { id: formation.id };
+      console.log('[formations-view] edit-formation', payload);
+      this.$emit('trigger-event', { name: 'edit-formation', event: payload });
     },
   },
 };
