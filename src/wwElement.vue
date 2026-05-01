@@ -175,7 +175,6 @@ export default {
         name: 'edit-formation',
         event: { id: formation.id, row: formation }
       });
-      window.location.href = '/formation?id=' + formation.id;
     },
   },
 };
