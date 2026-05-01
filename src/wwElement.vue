@@ -170,9 +170,32 @@ export default {
       this.$emit('trigger-event', { name: 'publish-change', event: payload });
     },
     editFormation(formation) {
-      const payload = { id: formation.id, row: formation };
-      console.log('[formations-view] edit-formation', payload);
-      this.$emit('trigger-event', { name: 'edit-formation', event: payload });
+      const row = {
+        id: formation.id,
+        title: formation.title || '',
+        status: formation.status || '',
+        category: formation.category || '',
+        categoryId: formation.category_id || '',
+        categoryName: formation.category_name || '',
+        description: formation.description || '',
+        language: formation.language || '',
+        level: formation.level || '',
+        duration: formation.estimated_duration || '',
+        targetAudience: formation.target_audience || '',
+        shortSummary: formation.short_summary || '',
+        formateurId: formation.formateur_id || '',
+        coverImage: formation.cover_image || '',
+        introVideo: formation.intro_video || '',
+        moodleCourseId: formation.moodle_course_id || null,
+        objectives: formation.objectives || [],
+        options: formation.options || {},
+        prerequisites: formation.prerequisites || [],
+        resources: formation.resources || [],
+        learningOutcomes: formation.learning_outcomes || [],
+        createdAt: formation.created_at || '',
+      };
+      console.log('[formations-view] edit-formation', { id: formation.id, row });
+      this.$emit('trigger-event', { name: 'edit-formation', event: { id: formation.id, row } });
     },
   },
 };
